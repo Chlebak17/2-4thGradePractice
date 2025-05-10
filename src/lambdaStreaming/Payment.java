@@ -1,13 +1,12 @@
 package lambdaStreaming;
 
+import java.lang.reflect.Array;
 import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-class Payment {
+class Payment implements Comparable<Payment>{
     private String transactionId;
     private String userId;
     private double amount;
@@ -15,6 +14,13 @@ class Payment {
     private String paymentMethod;
     private String status;
     private String category;
+
+    final static Comparator<Payment> COMPARE_BY_STATUS = new Comparator<Payment>() {
+        @Override
+        public int compare(Payment o1, Payment o2) {
+            return o1.status.compareTo(o2.status);
+        }
+    };
 
     public Payment(String transactionId, String userId, double amount, LocalDateTime transactionDate,
                    String paymentMethod, String status, String category) {
@@ -34,6 +40,8 @@ class Payment {
     public String getPaymentMethod() { return paymentMethod; }
     public String getStatus() { return status; }
     public String getCategory() { return category; }
+    public void setTransactionId(String transactionId) {this.transactionId = transactionId;}
+    public void setUserId(String userId) {this.userId = userId;}
 
     @Override
     public String toString() {
@@ -57,5 +65,11 @@ class Payment {
                 statuses.get(random.nextInt(statuses.size())),
                 categories.get(random.nextInt(categories.size()))
         )).collect(Collectors.toList());
+    }
+
+
+    @Override
+    public int compareTo(Payment o) {
+        return (int) (this.amount - o.amount);
     }
 }

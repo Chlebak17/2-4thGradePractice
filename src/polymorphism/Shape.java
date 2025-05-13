@@ -7,10 +7,12 @@ public interface Shape {
 
 }
 class Square implements Shape{
+    String name;
     int a;
 
-    public Square(int a) {
+    public Square(int a,String name) {
         this.a = a;
+        this.name = name;
     }
 
     @Override
@@ -25,7 +27,7 @@ class Square implements Shape{
 
     @Override
     public String toString() {
-        return "Square with" + a + " cm edge";
+        return "Square " + name + " " + "(a=" + a + "cm)";
     }
 }
 class Rectangle implements Shape{
@@ -40,9 +42,7 @@ class Rectangle implements Shape{
 
     @Override
     public String toString() {
-        return "Rectangle{" +
-                "a =" + a +
-                "cm and b =" + b + " cm";
+        return "Rectangle(" + "a=" + a + "cm and b=" + b + "cm)";
     }
 
     @Override

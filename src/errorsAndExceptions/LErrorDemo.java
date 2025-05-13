@@ -1,8 +1,14 @@
 package errorsAndExceptions;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.ArrayList;
+import java.util.List;
+
 public class LErrorDemo {
-    public static void main(String[] args)
-    {
+
+    public static void firstCase(){
         int num = 789;
         int reversednum = 0;
         int remainder;
@@ -24,5 +30,25 @@ public class LErrorDemo {
         }
         System.out.println("Reversed number is "
                 + reversednum);
+    }
+
+    public static void secondCase(){
+        int[] array = new int[20];
+        try {
+            array[20] = 20;
+        }catch (ArrayIndexOutOfBoundsException e){
+            System.out.println("Takhle dlouhý pole není...");
+        }
+
+    }
+
+    public static void exceptionCase() throws IOException {
+        List<String> list = Files.readAllLines(Paths.get("file.txt"));
+    }
+
+    public static void main(String[] args)
+    {
+        firstCase();
+        secondCase();
     }
 }

@@ -19,6 +19,8 @@ public class ShapeSorter {
         }
     };
 
+
+
     public ShapeSorter(List<Shape> shapes) {
         this.shapes = shapes;
     }
@@ -30,7 +32,7 @@ public class ShapeSorter {
 }
 class GeometryDash{
     public static void main(String[] args) {
-        Square square = new Square(5);
+        Square square = new Square(5,"Albert");
         Rectangle rectangle = new Rectangle(8,5);
 
         List<Shape> shapes = new ArrayList<>();

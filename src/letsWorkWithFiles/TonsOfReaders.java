@@ -101,8 +101,5 @@ public class TonsOfReaders{
         PrintWriter crazy = new PrintWriter(new BufferedWriter(new FileWriter(filePath)));
         crazy.println("lol");
 
-
-
-
     }
 }

@@ -13,6 +13,8 @@ public class FastRead {
 
                 long start = System.nanoTime();
                 while ((line = br.readLine()) != null){
+                    //System.out.println(line.charAt(0));
+                    //System.out.println((int) (line.charAt(0)));
                     System.out.println(line);
                 }
                 br.close();
